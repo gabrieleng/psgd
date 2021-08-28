@@ -4,7 +4,7 @@ from prepImg import prepImg
 from circleMask import circleMask
 from findPeaks import findPeaks
 from markedSpots import markedSpots
-import skimage
+#import skimage
 #load and prepare image
 img = cv2.imread("img/test2.png")
 pImg = prepImg(img,512)

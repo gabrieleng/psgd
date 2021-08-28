@@ -1,4 +1,4 @@
-def selectRegion(window)):
+def selectRegion(window):
     print("Please select region")
     #pass window
     #add callback

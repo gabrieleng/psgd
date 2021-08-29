@@ -44,10 +44,11 @@ def findMatchingRegion(imgIn, sourceCoords, searchCoords): #coords come like [x1
     cv2.imshow("scanning...", testRegion)
     diff = cv2.absdiff(testRegion,sourceRegion)
     cv2.imshow("comparing...", diff)
-
-    cv2.waitKey(0)
+    return [x1,y1,x2,y2]
 
 img = cv2.imread("img/JVASP-27851_Positive_20.jpg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-findMatchingRegion(img, [193,74,217,109], [206,104,243,143])
+match = findMatchingRegion(img, [193,74,217,109], [206,104,243,143])
+print(match)
+cv2.waitKey(0)

@@ -1,7 +1,8 @@
 import numpy as np
 import cv2
 
-def findMatchingRegion(img, sourceCoords, searchCoords): #coords come like [x1,x2,y1,y2] assuming x2<x1,y2<y1
+def findMatchingRegion(imgIn, sourceCoords, searchCoords): #coords come like [x1,x2,y1,y2] assuming x2<x1,y2<y
+    img = cv2.Laplacian(imgIn,cv2.CV_64F)
     sourceWidth = sourceCoords[2]-sourceCoords[0]   
     sourceHeight = sourceCoords[3]-sourceCoords[1]
     #ceneter rectangles around eachother
@@ -48,7 +49,5 @@ def findMatchingRegion(img, sourceCoords, searchCoords): #coords come like [x1,x
 
 img = cv2.imread("img/JVASP-27851_Positive_20.jpg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-edges = cv2.Canny(img, 100,200)
-laplacian = cv2.Laplacian(img,cv2.CV_64F)
 
-findMatchingRegion(laplacian, [193,74,217,109], [206,104,243,143])
+findMatchingRegion(img, [193,74,217,109], [206,104,243,143])

@@ -19,21 +19,16 @@ def selectRegion(window):
     test=cv2.setMouseCallback('img', callback)
     while len(coords)<4:   
         cv2.waitKey(1)
+    l = np.sqrt( (coords[0]-coords[2])**2 + (coords[1]-coords[3])**2 ) 
+    print('length:',l)
+    a = (coords[2]-coords[0])*(coords[3]-coords[1])
+    print('area:',a)
     return coords
-
-def measureLength(window):
-    r = selectRegion('img')
-    print(r)
-    l = np.sqrt( (r[0]-r[2])**2 + (r[1]-r[3])**2 ) 
-    print(l)
 
 img = cv2.imread("img/JVASP-27851_Positive_20.jpg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 cv2.imshow('img', img)
-
-measureLength('img')
-
-
-
+r = selectRegion('img')
+print(r)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

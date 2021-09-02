@@ -25,10 +25,3 @@ def selectRegion(window):
     print('area:',a)
     return coords
 
-img = cv2.imread("img/JVASP-27851_Positive_20.jpg")
-img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-cv2.imshow('img', img)
-r = selectRegion('img')
-print(r)
-cv2.waitKey(0)
-cv2.destroyAllWindows()

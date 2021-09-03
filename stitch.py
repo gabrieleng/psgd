@@ -30,4 +30,4 @@ def stitch(img, points, n):
         tiledXShifted =  np.hstack([offset, tiledX])[0:np.shape(tiledX)[0],0:np.shape(tiledX)[1]]
         tiled = np.vstack([tiled, tiledXShifted])
     cv2.imshow('tiled', tiled)
-    cv2.imwrite('img/tiled.jpg', tiled)
+    return tiled
